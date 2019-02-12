@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?><diagram program="umlet" version="13.3">
+  <zoom_level>10</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>660</x>
+      <y>140</y>
+      <w>130</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>_Pizza_
+--
+pizzaID
+sauceID (FK)
+crustID (FK)
+name
+priceModifier</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>190</x>
+      <y>350</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_SideOrder_
+--
+sideID (FK)
+orderID (FK)
+quantity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>470</y>
+      <w>150</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_Side_
+--
+sideID
+name
+price</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>320</x>
+      <y>100</y>
+      <w>150</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>_Order_
+--
+orderID
+customerID (FK)
+orderDateTime
+orderStatus</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>20</x>
+      <y>100</y>
+      <w>150</w>
+      <h>220</h>
+    </coordinates>
+    <panel_attributes>_Customer_
+--
+customerID
+phoneNumber
+firstName
+lastName
+addressLine1
+addressLine2
+suburb
+postCode
+state</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>160</y>
+      <w>160</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_Crust_
+--
+crustID
+name
+price</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>20</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>_Sauce_
+--
+sauceID
+name
+price</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>160</x>
+      <y>180</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..*
+places &gt;</panel_attributes>
+    <additional_attributes>10.0;20.0;160.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>460</x>
+      <y>180</y>
+      <w>220</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+contains &gt;</panel_attributes>
+    <additional_attributes>200.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>780</x>
+      <y>180</y>
+      <w>180</w>
+      <h>50</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..*
+contains &gt;</panel_attributes>
+    <additional_attributes>160.0;20.0;10.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>50</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=1..1
+m2=0..*
+contains &gt;</panel_attributes>
+    <additional_attributes>230.0;20.0;10.0;20.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>380</x>
+      <y>310</y>
+      <w>100</w>
+      <h>180</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+&lt; contains</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;160.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>940</x>
+      <y>280</y>
+      <w>160</w>
+      <h>100</h>
+    </coordinates>
+    <panel_attributes>_Topping_
+--
+toppingID
+name
+price</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>330</x>
+      <y>380</y>
+      <w>90</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;20.0;70.0;20.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>490</x>
+      <y>280</y>
+      <w>180</w>
+      <h>120</h>
+    </coordinates>
+    <panel_attributes>_PizzaOrder_
+--
+pizzaID (FK)
+orderID (FK)
+sauceIDAlteration (FK)
+crustIDAlteration (FK)
+quantity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>190</y>
+      <w>30</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;90.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>710</x>
+      <y>250</y>
+      <w>250</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+contains &gt;</panel_attributes>
+    <additional_attributes>230.0;80.0;10.0;80.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>740</x>
+      <y>380</y>
+      <w>160</w>
+      <h>90</h>
+    </coordinates>
+    <panel_attributes>_PizzaTopping_
+--
+pizzaID (FK)
+toppingID (FK)
+quantity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>320</y>
+      <w>30</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;60.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>730</x>
+      <y>530</y>
+      <w>180</w>
+      <h>110</h>
+    </coordinates>
+    <panel_attributes>_PizzaToppingAlteration_
+--
+pizzaID (FK)
+orderID (FK)
+toppingID (FK)
+quantity</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>610</x>
+      <y>370</y>
+      <w>450</w>
+      <h>150</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..*
+&lt; alters</panel_attributes>
+    <additional_attributes>10.0;30.0;10.0;130.0;410.0;130.0;410.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>570</x>
+      <y>190</y>
+      <w>590</w>
+      <h>510</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..1
+&lt; alters</panel_attributes>
+    <additional_attributes>10.0;210.0;10.0;490.0;570.0;490.0;570.0;10.0;530.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>530</x>
+      <y>60</y>
+      <w>670</w>
+      <h>680</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=0..*
+m2=0..1
+&lt; alters</panel_attributes>
+    <additional_attributes>10.0;340.0;10.0;660.0;650.0;660.0;650.0;10.0;570.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>810</x>
+      <y>490</y>
+      <w>30</w>
+      <h>60</h>
+    </coordinates>
+    <panel_attributes>lt=.
+</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0</additional_attributes>
+  </element>
+</diagram>
