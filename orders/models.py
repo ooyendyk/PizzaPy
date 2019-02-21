@@ -1,5 +1,7 @@
 from django.db import models
 from datetime import datetime
+from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser
 from django.core.validators import MaxValueValidator
 
 # Side, sauce, crust and topping all have identical attributes.
@@ -7,6 +9,7 @@ from django.core.validators import MaxValueValidator
 
 
 class Customer(models.Model):
+    userID = models.OneToOneField(User, on_delete=models.CASCADE)
     firstName = models.CharField(max_length=48)
     lastName = models.CharField(max_length=48)
     phoneNumber = models.CharField(max_length=24)

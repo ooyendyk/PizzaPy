@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Customer, Side, Order, SideOrder, Sauce, Crust, Topping, Pizza, PizzaTopping, PizzaOrder, \
+from .models import User, Customer, Side, Order, SideOrder, Sauce, Crust, Topping, Pizza, PizzaTopping, PizzaOrder, \
     PizzaToppingAlteration
 
 # TODO: Fix obscenely long strings
@@ -8,9 +8,10 @@ from .models import Customer, Side, Order, SideOrder, Sauce, Crust, Topping, Piz
 
 class CustomerModelTest(TestCase):
     def test_string_representation(self):
-        customer = Customer.objects.create(firstName="Kingsford", lastName="Smith", phoneNumber="+61-234-567-890",
-                                           addressLine1="10 Example St", addressLine2="Apt 20", suburb="Sydney",
-                                           postCode="2000", state="NSW")
+        user = User.objects.create_user(username="johnD", password="welcome")
+        customer = Customer.objects.create(userID=user, firstName="Kingsford", lastName="Smith",
+                                           phoneNumber="+61-234-567-890", addressLine1="10 Example St",
+                                           addressLine2="Apt 20", suburb="Sydney", postCode="2000", state="NSW")
         self.assertEqual(str(customer), "Name: Kingsford Smith Ph: +61-234-567-890")
 
 
@@ -58,18 +59,20 @@ class PizzaToppingModelTest(TestCase):
 
 class OrderModelTest(TestCase):
     def test_string_representation(self):
-        customer = Customer.objects.create(firstName="Kingsford", lastName="Smith", phoneNumber="+61-234-567-890",
-                                           addressLine1="10 Example St", addressLine2="Apt 20", suburb="Sydney",
-                                           postCode="2000", state="NSW")
+        user = User.objects.create_user(username="johnD", password="welcome")
+        customer = Customer.objects.create(userID=user, firstName="Kingsford", lastName="Smith",
+                                           phoneNumber="+61-234-567-890", addressLine1="10 Example St",
+                                           addressLine2="Apt 20", suburb="Sydney", postCode="2000", state="NSW")
         order = Order.objects.create(customerID=customer)
         self.assertEqual(str(order), f"Customer: Name: Kingsford Smith Ph: +61-234-567-890 Status: Pending Sides: orders.Side.None")
 
 
 class SideOrderModelTest(TestCase):
     def test_string_representation(self):
-        customer = Customer.objects.create(firstName="Henry", lastName="Lawson", phoneNumber="+61-987-654-321",
-                                           addressLine1="437 Great North Rd", addressLine2="Unit 1",
-                                           suburb="Abbotsford", postCode="2046", state="NSW")
+        user = User.objects.create_user(username="johnD", password="welcome")
+        customer = Customer.objects.create(userID=user, firstName="Henry", lastName="Lawson",
+                                           phoneNumber="+61-987-654-321", addressLine1="437 Great North Rd",
+                                           addressLine2="Unit 1", suburb="Abbotsford", postCode="2046", state="NSW")
         order = Order.objects.create(customerID=customer)
         side = Side.objects.create(name="Garlic Bread", price=4.00)
         side_order = SideOrder.objects.create(sideID=side, orderID=order, quantity=1)
@@ -78,7 +81,8 @@ class SideOrderModelTest(TestCase):
 
 class PizzaOrderModelTest(TestCase):
     def test_string_representation(self):
-        customer = Customer.objects.create(firstName="Banjo", lastName="Paterson", phoneNumber="02 9555 3611",
+        user = User.objects.create_user(username="johnD", password="welcome")
+        customer = Customer.objects.create(userID=user, firstName="Banjo", lastName="Paterson",
                                            addressLine1="1 Punt Rd", addressLine2="Banjo Paterson Park",
                                            suburb="Gladesville", postCode="2111", state="NSW")
         order = Order.objects.create(customerID=customer)
@@ -94,9 +98,10 @@ class PizzaOrderModelTest(TestCase):
 
 class PizzaToppingAlterationModelTest(TestCase):
     def test_string_representation(self):
-        customer = Customer.objects.create(firstName="Caroline", lastName="Chisholm", phoneNumber="0405555555",
-                                           addressLine1="86 George St", addressLine2="Unit B", suburb="Windsor",
-                                           postCode="2756", state="NSW")
+        user = User.objects.create_user(username="johnD", password="welcome")
+        customer = Customer.objects.create(userID=user, firstName="Caroline", lastName="Chisholm",
+                                           phoneNumber="0405555555", addressLine1="86 George St",
+                                           addressLine2="Unit B", suburb="Windsor", postCode="2756", state="NSW")
         order = Order.objects.create(customerID=customer)
         crust = Crust.objects.create(name="Deep Pan", price=8.00)
         sauce = Sauce.objects.create(name="Classic Tomato", price=0.00)
