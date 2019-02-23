@@ -6,6 +6,10 @@ from .models import Customer
 
 
 def index(request):
+    return render(request, "users/index.html")
+
+
+def checkout_view(request):
     if not request.user.is_authenticated:
         return render(request, "users/login.html", {"message": None})
     context = {

@@ -1,0 +1,27 @@
+{% extends "users/base.html" %}
+
+{% block body %}
+<div class="hero">
+    <div class="hero" id="bottom"></div>
+    <div class="hero" id="top"></div>
+    <div class="hero" id="text">
+        <h1 class="display-1 font-weight-bold text-white">PizzaPy</h1>
+        <p class="lead font-weight-bold text-white">Gourmet Pizza Bar.</p>
+    </div>
+</div>
+<div style="width: 100vw; height: 360px;"></div>
+
+<div class="container">
+    <div class="card-deck">
+        <div class="card mb-4 border-secondary" style="min-width: 320px">
+            <img src="../../static/images/pizza0.jpg" class="card-img-top" alt="Picture of food item"/>
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                <a href="#" class="btn btn-outline-secondary">Customise</a>
+                <a href="#" class="btn btn-primary">Delicious!</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
